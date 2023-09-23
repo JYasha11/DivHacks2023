@@ -1,0 +1,80 @@
+[
+    {
+        "firstName": "Bob",
+        "lastName": "Shmungo",
+        "age": 34,
+        "height": "2.6m",
+        "weight": "145",
+        "symptoms": "Fever",
+        "conditions": "Dementia",
+        "diagnosis": "Sepsis",
+        "medications": "Tylenol",
+        "nextApt": "12/16/2023",
+        "imageURL": "https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec"
+    },
+    {
+        "firstName": "Alice",
+        "lastName": "Smith",
+        "age": 28,
+        "height": "1.75m",
+        "weight": "60",
+        "symptoms": "Headache",
+        "conditions": "Allergies",
+        "diagnosis": "Migraine",
+        "medications": "Advil",
+        "nextApt": "11/25/2023",
+        "imageURL": "https://example.com/alice.jpg"
+    },
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "age": 45,
+        "height": "1.8m",
+        "weight": "75",
+        "symptoms": "Cough",
+        "conditions": "Asthma",
+        "diagnosis": "Bronchitis",
+        "medications": "Ventolin",
+        "nextApt": "12/10/2023",
+        "imageURL": "https://example.com/john.jpg"
+    },
+    {
+        "firstName": "Emma",
+        "lastName": "Johnson",
+        "age": 22,
+        "height": "1.65m",
+        "weight": "55",
+        "symptoms": "Fatigue",
+        "conditions": "Anemia",
+        "diagnosis": "Iron Deficiency",
+        "medications": "Iron Supplements",
+        "nextApt": "11/30/2023",
+        "imageURL": "https://example.com/emma.jpg"
+    },
+    {
+        "firstName": "David",
+        "lastName": "Brown",
+        "age": 39,
+        "height": "1.85m",
+        "weight": "80",
+        "symptoms": "Joint Pain",
+        "conditions": "Arthritis",
+        "diagnosis": "Osteoarthritis",
+        "medications": "Ibuprofen",
+        "nextApt": "12/5/2023",
+        "imageURL": "https://example.com/david.jpg"
+    },
+    {
+        "firstName": "Olivia",
+        "lastName": "Davis",
+        "age": 31,
+        "height": "1.7m",
+        "weight": "63",
+        "symptoms": "Nausea",
+        "conditions": "Pregnancy",
+        "diagnosis": "Morning Sickness",
+        "medications": "Ginger Tea",
+        "nextApt": "02/02/2024",
+        "imageURL": "https://example.com/olivia.jpg"
+    }
+]

@@ -10,7 +10,7 @@ type DashboardTableProps = {
 
 const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
     return (
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="border-solid  border-2 border-stone-300 my-2 mx-2 relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-black">
                 <caption className="p-5 text-lg font-semibold text-left text-stone-800 bg-stone-100">
                     Patient Dashboard
