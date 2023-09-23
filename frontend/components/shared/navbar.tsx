@@ -11,15 +11,15 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full bg-primary-white">
+    <nav className="w-full">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3">
-            <figure className="text-primary-orange hover:animate-spin">
+            <figure className="text-primary-orange hover:animate-spin font-primary-blue-200">
               <Logo />
             </figure>
             <Link href="/">
-              <h2 className="text-3xl font-bold text-primary-black">
+              <h2 className="text-3xl font-bold text-primary-blue-200">
                 Query Fuel
               </h2>
             </Link>
