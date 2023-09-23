@@ -68,14 +68,9 @@ export default function NavBar() {
                 <Link href="/">Home</Link>
               </li>
               {user && (
-                <>
-                  <li className="text-gray-500 text-xl font-bold hover:text-primary-black">
-                    <Link href="/announcement">Announcement</Link>
-                  </li>
-                  <li className="text-gray-500 text-xl font-bold hover:text-primary-black">
-                    <Link href="/feed">Feed</Link>
-                  </li>
-                </>
+                <li className="text-gray-500 text-xl font-bold hover:text-primary-black">
+                  <Link href="/dashboard">Dashboard</Link>
+                </li>
               )}
               <li className="text-gray-500 text-xl font-bold hover:text-primary-black">
                 <Link href="/contact-us">Contact US</Link>
