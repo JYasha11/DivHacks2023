@@ -3,7 +3,7 @@ import React from 'react';
 type DashboardTableProps = {
     headers: string[];
     data: {
-        [key: string]: string | number; 
+        [key: string]: string | number;
     }[];
 };
 
