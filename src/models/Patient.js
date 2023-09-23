@@ -8,7 +8,7 @@ const PatientSchema = new mongoose.Schema({
     phone: String,
     medication: [String], //same as treatment
     healthState:  [{
-        condition: { type: Schema.Types.ObjectId, ref: 'Diagnosis' },
+        condition: { type: mongoose.Schema.Types.ObjectId, ref: 'Diagnosis' },
         recovered: Boolean
     }] // list of diagnosis + recovered
 })
