@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '.';
 
-type VerticalCardProps = {
+type CardProps = {
     firstName: string;
     lastName: string;
     age: number;
@@ -10,7 +10,7 @@ type VerticalCardProps = {
     imageUrl: string;
 };
 
-const VerticalCard: React.FC<VerticalCardProps> = ({
+const Card: React.FC<CardProps> = ({
     firstName,
     lastName,
     age,
@@ -48,4 +48,4 @@ const VerticalCard: React.FC<VerticalCardProps> = ({
     );
 };
 
-export default VerticalCard;
+export default Card;
