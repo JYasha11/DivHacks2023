@@ -15,12 +15,12 @@ export default function NavBar() {
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3">
-            <figure className="text-primary-orange hover:animate-spin font-primary-blue-200">
+            <figure className="text-primary-orange text-4xl p-2 font-primary-blue-200">
               <Logo />
             </figure>
             <Link href="/">
               <h2 className="text-3xl font-bold text-primary-blue-200">
-                Query Fuel
+                MedScribe
               </h2>
             </Link>
             <div className="md:hidden">
