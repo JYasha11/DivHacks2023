@@ -1,6 +1,10 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 const PatientData = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
   return (
     <div className="px-10">
       <h1 className="py-5 font-bold text-3xl flex items-center justify-center">
