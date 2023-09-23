@@ -3,3 +3,7 @@ export type ButtonProps = {
   type: 'primary' | 'secondary';
   handleClick?: () => void;
 };
+
+export type LayoutProps = {
+  children: JSX.Element;
+};
