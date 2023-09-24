@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import axios, { Axios } from 'axios';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import email from '../../emails/email-form'
+import email from './email-form'
 
 const PatientData = () => {
   const router = useRouter();
@@ -83,7 +83,7 @@ const PatientData = () => {
                     Edit
                   </button>
                 </Link>
-                <Link href="../email-form">
+                <Link href="./email-form">
                   <button className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-light py-2 px-4 rounded-lg">
                     Contact Patient
                   </button>
@@ -101,7 +101,7 @@ const PatientData = () => {
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Gender:</span>
-                <span className="font-extralight text-l"></span>
+                <span className="font-extralight text-l">{patientData.gender}</span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Weight:</span>
@@ -109,11 +109,11 @@ const PatientData = () => {
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Height:</span>
-                <span className="font-extralight text-l"></span>
+                <span className="font-extralight text-l">{patientData.height}</span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Email:</span>
-                <span className="font-extralight text-l"></span>
+                <span className="font-extralight text-l">{patientData.email}</span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Phone:</span>

@@ -1,13 +1,19 @@
-{/*import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { Button } from '@react-email/button';
-import { Html } from '@react-email/html';
+import emailjs from '@emailjs/browser';
 
-// Define your EmailJS service and template IDs
-const serviceId = 'YOUR_EMAILJS_SERVICE_ID';
-const templateId = 'YOUR_EMAILJS_TEMPLATE_ID';
-const userId = 'YOUR_EMAILJS_USER_ID';
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+// Initialize EmailJS with the correct environment variable name
+if (process.env.EMAILJS_USER_ID) {
+    emailjs.init(process.env.EMAILJS_USER_ID);
+} else {
+    console.error('EMAILJS_USER_ID is not defined in your environment variables.');
+    // Handle this error case appropriately
+}
+
 
 const PatientData = () => {
     const router = useRouter();
@@ -28,20 +34,33 @@ const PatientData = () => {
         fetchData(); // Call the fetchData function
     }, [id]);
 
+    const sendEmail = async () => {
+        // Define your EmailJS service and template IDs
+        const serviceId = 'EMAILJS_SERVICE_ID';
+        const templateId = 'EMAILJS_TEMPLATE_ID';
+
+        // Create an EmailJS email object with your data
+        const emailParams = {
+            from_email: 'your_email@example.com', // Replace with your email
+            to_email: 'recipient_email@example.com', // Replace with the recipient's email
+            subject: 'Subject of the email',
+            message: 'Email content goes here',
+        };
+
+        try {
+            const response = await emailjs.send(serviceId, templateId, emailParams);
+            console.log('Email sent:', response);
+        } catch (error) {
+            console.error('Error sending email:', error);
+        }
+    };
+
     return (
+        // ... (rest of your component code)
         <div className="min-h-screen bg-stone-300">
             <section >
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
                     <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-800">Contact The Patient</h2>
-                    <Html>
-                        <Button className="bg-black"
-                            pX={20}
-                            pY={12}
-                            href="https://example.com"
-                        >
-                            Click me
-                        </Button>
-                    </Html>
                     <p className="mb-8 lg:mb-16 font-light text-center text-gray-600 sm:text-xl">Looking to communicate to your patient directly? Fill out this form to avoid any medical miscommunication, take out the middleman.</p>
                     <form action="#" className="space-y-8">
                         <div>
@@ -65,4 +84,4 @@ const PatientData = () => {
     );
 };
 
-export default PatientData;*/}
+export default PatientData;
