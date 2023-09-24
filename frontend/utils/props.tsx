@@ -7,3 +7,9 @@ export type ButtonProps = {
 export type LayoutProps = {
   children: JSX.Element;
 };
+
+export type InnovationCardProps = {
+  imgUrl?: string;
+  title?: string;
+  description?: string;
+};
