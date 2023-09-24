@@ -23,5 +23,21 @@ module.exports = {
             console.error(error);
             res.status(500).json({ message: 'Internal server error' });
           }
-	},
+  },
+  async getDiagnosisById(req,res){
+    const diagnosisId = req.params.diagnosisId;
+
+    try {
+        const diagnosis = await Diagnosis.findById(diagnosisId);
+
+        if (!diagnosis) {
+            return res.status(404).json({ message: 'Diagnosis not found' });
+        }
+
+        res.status(200).json(diagnosis);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+  },
 }

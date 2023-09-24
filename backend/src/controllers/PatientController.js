@@ -11,6 +11,9 @@ module.exports = {
               weight,
               age,
               phone,
+              height,
+              gender,
+              email,
               medication,
               healthState,
             } = req.body;
@@ -22,6 +25,9 @@ module.exports = {
               weight,
               age,
               phone,
+              height,
+              gender,
+              email,
               medication,
               healthState,
             });

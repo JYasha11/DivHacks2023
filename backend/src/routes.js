@@ -24,5 +24,6 @@ routes.get('/patients/condition/:conditionId', PatientController.getPatientsByCo
 
 //Diagnosis
 routes.post('/diagnosis', DiagnosisController.createDiagnosis)
+routes.get('/diagnosis/:diagnosisId', DiagnosisController.getDiagnosisById)
 
 module.exports = routes;
