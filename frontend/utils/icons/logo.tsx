@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <svg
       stroke="currentColor"
-      fill="currentColor"
+      fill="darkgray"
       strokeWidth="0"
       viewBox="0 0 448 512"
       height="1em"
