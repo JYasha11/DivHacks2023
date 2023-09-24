@@ -1,11 +1,11 @@
 import React from 'react';
 function Index() {
   return (
-    <div>
+    <div className="bg-gray-100">
       <div className="container flex justify-center mx-auto pt-16">
         <div>
-          <h1 className="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
-            The Talented People Behind the Scenes of the MedScribe
+          <h1 className="xl:text-4xl text-3xl text-center text-gray-800 font-light pb-6 sm:w-4/6 w-5/6 mx-auto">
+            The Talented People Behind MedScribe
           </h1>
         </div>
       </div>
@@ -49,7 +49,7 @@ function Index() {
                 </div>
                 <div className="px-6 my-16">
                   <div className="font-bold text-3xl text-center pb-1">Jon</div>
-                  <p className="text-gray-800 text-sm text-center">CS @ BC</p>
+                  <p className="text-gray-800 text-sm text-center">CS @ Brooklyn College</p>
                   <p className="text-center text-gray-600 text-base pt-3 font-normal">
                     Its all cool!
                   </p>
