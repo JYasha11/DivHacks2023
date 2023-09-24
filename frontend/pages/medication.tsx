@@ -55,7 +55,7 @@ const DrugInfo: React.FC = () => {
                 </select>
             </div>
             {
-                conditions.map((item, index) => (
+                conditions?.map((item, index) => (
                     <>
                         <div key={index} className="bg-stone-100 border p-4 rounded-md shadow" >
                             <h2 className="text-2xl font-semibold mb-2">Drug Name: {item.drugName}</h2>
