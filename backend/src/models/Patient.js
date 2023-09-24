@@ -5,6 +5,9 @@ const PatientSchema = new mongoose.Schema({
 	weight: String,
     age: Number,
     phone: String,
+    height: String,
+    gender: String,
+    email: String,
     medication: [String], //same as treatment
     healthState:  [{
         condition: { type: mongoose.Schema.Types.ObjectId, ref: 'Diagnosis' },
