@@ -18,6 +18,7 @@ routes.get('/appointment/date/:date', AppointmentController.getAppointmentByDate
 
 //Patient
 routes.post('/patient', PatientController.createPatient)
+routes.get('/patient/:patientId', PatientController.getPatientById)
 routes.get('/patients', PatientController.getAllPatients)
 routes.get('/patients/condition/:conditionId', PatientController.getPatientsByCondition)
 
