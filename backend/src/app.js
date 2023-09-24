@@ -1,14 +1,14 @@
 const express = require('express');
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const UserController = require('./controllers/UserController');
 const app = express();
-const port = process.env.PORT || 3000;
-const routes =require('./routes');
+const port = process.env.PORT || 5001;
+const routes = require('./routes');
 app.use(express.json());
 app.use(cors());
 
-if(process.env.NODE_ENV !=='production'){
+if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
@@ -17,12 +17,12 @@ app.get('/', (req, res) => {
 });
 
 app.use(routes);
-try{
-  mongoose.connect(process.env.MONGO_DB_CONNECTION,{
-      useUnifiedTopology: true,
+try {
+  mongoose.connect(process.env.MONGO_DB_CONNECTION, {
+    useUnifiedTopology: true,
   })
   console.log("mongodb connected")
-}catch(error){
+} catch (error) {
 
 }
 
