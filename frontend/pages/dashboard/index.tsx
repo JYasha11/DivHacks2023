@@ -36,7 +36,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-white">
       {/*<DashboardTable headers={headers} data={data} />*/}
       {data.map((item, index) => (
         <Card
