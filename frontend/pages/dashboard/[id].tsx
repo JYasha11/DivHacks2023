@@ -3,6 +3,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import axios, { Axios } from 'axios';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import email from '../../emails/email-form'
 
 const PatientData = () => {
   const router = useRouter();
@@ -12,7 +14,7 @@ const PatientData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/patients/${patientData._id}`);
+        const response = await axios.get(`http://localhost:5001/patient/${id}`);
         setPatientData(response.data);
         console.log(response.data);
       } catch (error) {
@@ -21,7 +23,7 @@ const PatientData = () => {
     };
 
     fetchData(); // Call the fetchData function
-  }, []);
+  }, [id]);
 
   return (
     <div className="bg-stone-100 mx-5 my-5 py-8 px-8 rounded-2xl">
@@ -36,8 +38,17 @@ const PatientData = () => {
             <h1 className="font-light text-xl py-2">Medication History</h1>
             <div className="pl-4 flex items-start">
               <span className="font-medium text-l w-24">Current:</span>
-              <span className="font-extralight text-l">Advil, Tylenol</span>
+              {patientData.medication && patientData.medication.length > 0 ? (
+                <span className="font-extralight text-l">
+                  {patientData.medication.map((item, index) => (
+                    <span key={index}>{item} </span>
+                  ))}
+                </span>
+              ) : (
+                <span className="font-extralight text-l">N/A</span>
+              )}
             </div>
+
             <div className="pl-4 flex items-start">
               <span className="font-medium text-l w-24">Past:</span>
               <span className="font-extralight text-l">Motrin</span>
@@ -64,11 +75,21 @@ const PatientData = () => {
         <div className="w-2/3">
           <section>
             <div className="flex justify-between items-center">
-              <h1 className="font-medium text-3xl flex items-left justify-left">Shivam Shekhar</h1>
-              <p className="font-light text-m flex">Patient for : <span> 2 years</span></p>
-              <button className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-light py-2 px-4 rounded-lg">
-                Contact Patient
-              </button>
+              <h1 className="font-medium text-3xl flex items-left justify-left">{patientData.firstName} {patientData.lastName}</h1>
+              <p className="font-light text-m flex">Patient for: 2 years</p>
+              <div className="flex justify-end">
+                <Link href="">
+                  <button className="mx-2 my-2 bg-yellow-500 hover:bg-yellow-600 text-white font-light py-2 px-4 rounded-lg">
+                    Edit
+                  </button>
+                </Link>
+                <Link href="../email-form">
+                  <button className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-light py-2 px-4 rounded-lg">
+                    Contact Patient
+                  </button>
+                </Link>
+              </div>
+
             </div>
 
             <hr className="border-t border-gray-300" />
@@ -76,27 +97,27 @@ const PatientData = () => {
             <div className="px-4">
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Age:</span>
-                <span className="font-extralight text-l">22</span>
+                <span className="font-extralight text-l">{patientData.age}</span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Gender:</span>
-                <span className="font-extralight text-l">Male</span>
+                <span className="font-extralight text-l"></span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Weight:</span>
-                <span className="font-extralight text-l">120lbs</span>
+                <span className="font-extralight text-l">{patientData.weight}</span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Height:</span>
-                <span className="font-extralight text-l">5ft</span>
+                <span className="font-extralight text-l"></span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Email:</span>
-                <span className="font-extralight text-l">idk@gmail.com</span>
+                <span className="font-extralight text-l"></span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-20">Phone:</span>
-                <span className="font-extralight text-l">(9990-999-9999)</span>
+                <span className="font-extralight text-l">{patientData.phone}</span>
               </div>
             </div>
           </section>
@@ -110,15 +131,11 @@ const PatientData = () => {
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-1/6">Conditions:</span>
-                <span className="font-extralight text-l">
-                  TB, Back Pain
-                </span>
+                <span className="font-extralight text-l">TB, Back Pain</span>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-l w-1/6">Allergies:</span>
-                <span className="font-extralight text-l">
-                  None
-                </span>
+                <span className="font-extralight text-l">None</span>
               </div><div className="flex items-start">
                 <span className="font-medium text-l w-1/6">Surgeries:</span>
                 <span className="font-extralight text-l">
@@ -132,25 +149,7 @@ const PatientData = () => {
             <h1 className="font-light text-xl py-2">Additional Notes</h1>
             <div className="px-4">
               <div className="flex items-start">
-                <span className="font-medium text-l w-1/6">Symptoms:</span>
-                <span className="font-extralight text-l">Cough, Fever, Abdominal Pain</span>
-              </div>
-              <div className="flex items-start">
-                <span className="font-medium text-l w-1/6">Conditions:</span>
-                <span className="font-extralight text-l">
-                  TB, Back Pain
-                </span>
-              </div>
-              <div className="flex items-start">
-                <span className="font-medium text-l w-1/6">Allergies:</span>
-                <span className="font-extralight text-l">
-                  None
-                </span>
-              </div><div className="flex items-start">
-                <span className="font-medium text-l w-1/6">Surgeries:</span>
-                <span className="font-extralight text-l">
-                  Torn ACL
-                </span>
+                <span className="font-extralight text-l">Patient is uncooperative.</span>
               </div>
             </div>
           </section>

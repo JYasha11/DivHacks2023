@@ -35,26 +35,26 @@ const Dashboard = () => {
 
     fetchData(); // Call the fetchData function
   }, []);
-
   return (
     <div className="bg-white">
-      {/*<DashboardTable headers={headers} data={data} />*/}
-
-      {patientData.map((item, index) => (
-        <Link key={index._id} href={`dashboard/${item._id}`}>
-          <Card
-            firstName={item.firstName}
-            lastName={item.lastName}
-            age={item.age}
-            height={item.height} //need to add height to backend
-            weight={item.weight}
-            imageUrl={item.imageURL}
-          />
-        </Link>
-      ))}
+      <div className="flex flex-wrap justify-evenly">
+        {patientData.map((item, index) => (
+          <Link key={index._id} href={`dashboard/${item._id}`}>
+            <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+              <Card
+                firstName={item.firstName}
+                lastName={item.lastName}
+                age={item.age}
+                height={item.height} // need to add height to backend
+                weight={item.weight}
+                imageUrl={item.imageURL}
+              />
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
-};
 
+};
 export default Dashboard;
-export const getServerSideProps = withPageAuthRequired();
