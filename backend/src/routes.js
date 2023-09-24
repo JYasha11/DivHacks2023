@@ -5,6 +5,7 @@ const UserController = require('./controllers/UserController')
 const PatientController = require('./controllers/PatientController')
 const DiagnosisController = require('./controllers/DiagnosisController')
 const AppointmentController = require('./controllers/AppointmentController')
+const MedController = require('./controllers/MedController')
 const routes = express.Router();
 
 
@@ -23,5 +24,8 @@ routes.get('/patients/condition/:conditionId', PatientController.getPatientsByCo
 
 //Diagnosis
 routes.post('/diagnosis', DiagnosisController.createDiagnosis)
+
+//MedRec
+routes.get('/medications/:condition', MedController.getMedRecs)
 
 module.exports = routes;
