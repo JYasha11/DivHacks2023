@@ -74,6 +74,9 @@ export default function NavBar() {
               <li className="text-gray-500 text-xl font-light hover:text-primary-black">
                 <Link href="/contact">Contact Us</Link>
               </li>
+              <li className="text-gray-500 text-xl font-light hover:text-primary-black">
+                <Link href="/medication">Medication</Link>
+              </li>
             </ul>
 
             <div className="mt-3 space-y-2 lg:hidden md:inline-block">

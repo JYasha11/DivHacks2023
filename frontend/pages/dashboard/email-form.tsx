@@ -3,16 +3,16 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
 
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
-// Initialize EmailJS with the correct environment variable name
-if (process.env.EMAILJS_USER_ID) {
-    emailjs.init(process.env.EMAILJS_USER_ID);
-} else {
-    console.error('EMAILJS_USER_ID is not defined in your environment variables.');
-    // Handle this error case appropriately
-}
+// if (process.env.NODE_ENV !== 'production') {
+//     require('dotenv').config()
+// }
+// // Initialize EmailJS with the correct environment variable name
+// if (process.env.EMAILJS_USER_ID) {
+//     emailjs.init(process.env.EMAILJS_USER_ID);
+// } else {
+//     console.error('EMAILJS_USER_ID is not defined in your environment variables.');
+//     // Handle this error case appropriately
+// }
 
 
 const PatientData = () => {
@@ -60,7 +60,7 @@ const PatientData = () => {
         <div className="min-h-screen bg-stone-300">
             <section >
                 <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-800">Contact The Patient</h2>
+                    <h2 className="mb-4 text-4xl tracking-tight font-light text-center text-gray-800">Contact The Patient</h2>
                     <p className="mb-8 lg:mb-16 font-light text-center text-gray-600 sm:text-xl">Looking to communicate to your patient directly? Fill out this form to avoid any medical miscommunication, take out the middleman.</p>
                     <form action="#" className="space-y-8">
                         <div>
