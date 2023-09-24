@@ -14,6 +14,7 @@ routes.get('/user/:userId', UserController.getUserById)
 //Patient
 routes.post('/patient', PatientController.createPatient)
 routes.get('/patients', PatientController.getAllPatients)
+routes.get('/patients/condition/:conditionId', PatientController.getPatientsByCondition)
 
 //Diagnosis
 routes.post('/diagnosis', DiagnosisController.createDiagnosis)

@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
-const User = require('../models/User')
 const Patient=require('../models/Patient')
-
+const mongoose =require('mongoose')
 module.exports = {
 	async createPatient(req, res) {
         try {
@@ -42,6 +41,28 @@ module.exports = {
         try {
             // Fetch all patients from the database
             const patients = await Patient.find();
+        
+            // Respond with the list of patients
+            res.status(200).json(patients);
+          } catch (error) {
+            // Handle errors and send an error response
+            console.error(error);
+            res.status(500).json({ message: 'Internal server error' });
+          }
+    },
+    async getPatientsByCondition(req,res){
+        try {
+            const { conditionId } = req.params;
+        
+            // Use the `conditionId` to find patients with the specific condition
+            const patients = await Patient.find({
+                'healthState': {
+                  $elemMatch: {
+                    'condition': new mongoose.Types.ObjectId(conditionId)
+                  }
+                }
+              }).exec();
+              
         
             // Respond with the list of patients
             res.status(200).json(patients);
