@@ -21,6 +21,7 @@ routes.post('/patient', PatientController.createPatient)
 routes.get('/patient/:patientId', PatientController.getPatientById)
 routes.get('/patients', PatientController.getAllPatients)
 routes.get('/patients/condition/:conditionId', PatientController.getPatientsByCondition)
+routes.patch('/patient/:patientId/email',PatientController.findByIdAndUpdateEmail)
 
 //Diagnosis
 routes.post('/diagnosis', DiagnosisController.createDiagnosis)
