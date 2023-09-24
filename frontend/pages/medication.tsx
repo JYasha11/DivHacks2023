@@ -1,19 +1,20 @@
+//@ts-nocheck
 import React, { useState, useEffect } from 'react';
 import Rating from 'react-rating-stars-component';
 import axios from 'axios';
 
 const DrugInfo: React.FC = () => {
+    const [conditions, setConditions] = useState<any>()
     const [data, setData] = useState<any>();
+    const [selectedCondition, setSelectedCondition] = useState<string>('');
     // Sample list of conditions and corresponding drug information
     useEffect(() => {
-        axios.get('http://localhost:8080/medications/chickenpox').then(res => { console.log(res) }).catch(err => console.log(err))
-    }, [])
+        axios.get(`http://localhost:8080/medications/${selectedCondition}`).then(res => {
+            console.log(res.data)
+            setConditions(res.data)
+        }).catch(err => console.log(err))
+    }, [selectedCondition])
 
-    const conditions = [
-        { condition: 'Condition 1', drugName: 'Drug A', easeOfUse: 4, effectiveness: 3, reviews: 4, satisfaction: 4 },
-        { condition: 'Condition 2', drugName: 'Drug B', easeOfUse: 5, effectiveness: 5, reviews: 5, satisfaction: 5 },
-        { condition: 'Condition 3', drugName: 'Drug C', easeOfUse: 3, effectiveness: 4, reviews: 3, satisfaction: 3 },
-    ];
 
     const conditionsList = [
         { condition: 'chickenpox', drugName: 'Drug A', easeOfUse: 4, effectiveness: 3, reviews: 4, satisfaction: 4 },
@@ -23,13 +24,12 @@ const DrugInfo: React.FC = () => {
         { condition: 'endometriosis', drugName: 'Drug C', easeOfUse: 3, effectiveness: 4, reviews: 3, satisfaction: 3 },
     ];
 
-    const [selectedCondition, setSelectedCondition] = useState<string>('');
     const [drugInfo, setDrugInfo] = useState<any | null>(null);
 
     const handleConditionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const condition = event.target.value;
-        const selectedDrug = conditions.find((item) => item.condition === condition);
-        setDrugInfo(selectedDrug || null);
+        // const selectedDrug = conditions.find((item) => item.condition === condition);
+        // setDrugInfo(selectedDrug || null);
         setSelectedCondition(condition);
     };
 
@@ -47,63 +47,67 @@ const DrugInfo: React.FC = () => {
                     className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
                 >
                     <option value="">-- Select Condition --</option>
-                    {conditions.map((item, index) => (
+                    {conditionsList?.map((item, index) => (
                         <option key={index} value={item.condition}>
                             {item.condition}
                         </option>
                     ))}
                 </select>
             </div>
-            {drugInfo && (
-                <div className="bg-stone-100 border p-4 rounded-md shadow">
-                    <h2 className="text-2xl font-semibold mb-2">Drug Name: {drugInfo.drugName}</h2>
-                    <p className="mb-2">
-                        Ease of Use:
-                        <Rating
-                            value={drugInfo.easeOfUse}
-                            count={5}
-                            size={24}
-                            activeColor="#ffd700"
-                            isHalf={true}
-                            edit={false}
-                        />
-                    </p>
-                    <p className="mb-2">
-                        Effectiveness:
-                        <Rating
-                            value={drugInfo.effectiveness}
-                            count={5}
-                            size={24}
-                            activeColor="#ffd700"
-                            isHalf={true}
-                            edit={false}
-                        />
-                    </p>
-                    <p className="mb-2">
-                        Reviews:
-                        <Rating
-                            value={drugInfo.reviews}
-                            count={5}
-                            size={24}
-                            activeColor="#ffd700"
-                            isHalf={true}
-                            edit={false}
-                        />
-                    </p>
-                    <p>
-                        Satisfaction:
-                        <Rating
-                            value={drugInfo.satisfaction}
-                            count={5}
-                            size={24}
-                            activeColor="#ffd700"
-                            isHalf={true}
-                            edit={false}
-                        />
-                    </p>
-                </div>
-            )}
-        </div>
+            {
+                conditions.map((item, index) => (
+                    <>
+                        <div key={index} className="bg-stone-100 border p-4 rounded-md shadow" >
+                            <h2 className="text-2xl font-semibold mb-2">Drug Name: {item.drugName}</h2>
+                            <p className="mb-2">
+                                Ease of Use:
+                                <Rating
+                                    value={item.easeOfUse}
+                                    count={5}
+                                    size={24}
+                                    activeColor="#ffd700"
+                                    isHalf={true}
+                                    edit={false}
+                                />
+                            </p>
+                            <p className="mb-2">
+                                Effectiveness:
+                                <Rating
+                                    value={item.effectiveness}
+                                    count={5}
+                                    size={24}
+                                    activeColor="#ffd700"
+                                    isHalf={true}
+                                    edit={false}
+                                />
+                            </p>
+                            <p className="mb-2">
+                                Reviews:
+                                <Rating
+                                    value={item.reviews}
+                                    count={5}
+                                    size={24}
+                                    activeColor="#ffd700"
+                                    isHalf={true}
+                                    edit={false}
+                                />
+                            </p>
+                            <p>
+                                Satisfaction:
+                                <Rating
+                                    value={item.satisfaction}
+                                    count={5}
+                                    size={24}
+                                    activeColor="#ffd700"
+                                    isHalf={true}
+                                />
+                                edit={false}
+                            </p>
+                        </div>
+                    </>
+                ))
+            }
+        </div >
     );
 };
 
