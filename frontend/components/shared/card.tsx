@@ -22,13 +22,10 @@ const Card: React.FC<CardProps> = ({
         <div className="w-64 bg-white shadow-lg rounded-2xl overflow-hidden">
             <div className="relative">
                 <img
-                    src={imageUrl}
+                    src='https://picsum.photos/200/200'
                     alt={`${firstName} ${lastName}`}
                     className="w-full h-1/4 object-cover"
                 />
-                <button className="cursor-pointer hover:scale-105 absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded">
-                    Edit
-                </button>
             </div>
             <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2">

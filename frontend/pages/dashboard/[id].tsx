@@ -1,9 +1,27 @@
+//@ts-nocheck
 import React from 'react';
 import { useRouter } from 'next/router';
+import axios, { Axios } from 'axios';
+import { useEffect, useState } from 'react';
 
 const PatientData = () => {
   const router = useRouter();
   const { id } = router.query;
+  const [patientData, setPatientData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5001/patients/${patientData._id}`);
+        setPatientData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData(); // Call the fetchData function
+  }, []);
 
   return (
     <div className="bg-stone-100 mx-5 my-5 py-8 px-8 rounded-2xl">

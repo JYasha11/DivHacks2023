@@ -25,7 +25,7 @@ const WhatWeDo = () => {
   return (
     <div className="bg-white">
       <h1 className="flex justify-center py-5 sm:py-10 font-extralight sm:font-light text-xl sm:text-4xl">
-        Innovation behind MedScribe
+        Innovation Behind MedScribe
       </h1>
       <div className="sm:flex justify-evenly items-center">
         {innovationData.map((data) => (
