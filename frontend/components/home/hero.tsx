@@ -9,14 +9,14 @@ const Hero = () => {
   return (
     <div>
       <div
-        className="bg-blue-300 min-h-1/2 flex items-center
+        className="bg-blue-200 min-h-1/2 flex items-center
        justify-between">
         <div className="pl-15">
-          <h1 className="font-bold text-5xl text-center py-10 px-10">
+          <h1 className="font-light text-5xl text-center py-10 px-10">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                  .typeString('Welcome to MedScribe!')
+                  .typeString('Welcome to MedScribe')
                   .callFunction(() => {
                     console.log('String typed out!');
                   })
@@ -24,7 +24,7 @@ const Hero = () => {
               }}
             />
           </h1>
-          <h2 className="font-medium text-3xl text-center px-20">
+          <h2 className="font-extralight text-3xl text-center px-20">
             One Stop Solution for a Doctor-Patient Communication
           </h2>
           <div className="flex justify-center items-center py-5">

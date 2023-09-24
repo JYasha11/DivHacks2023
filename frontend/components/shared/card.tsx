@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '.';
 
-type VerticalCardProps = {
+type CardProps = {
     firstName: string;
     lastName: string;
     age: number;
@@ -10,7 +10,7 @@ type VerticalCardProps = {
     imageUrl: string;
 };
 
-const VerticalCard: React.FC<VerticalCardProps> = ({
+const Card: React.FC<CardProps> = ({
     firstName,
     lastName,
     age,
@@ -22,13 +22,10 @@ const VerticalCard: React.FC<VerticalCardProps> = ({
         <div className="w-64 bg-white shadow-lg rounded-2xl overflow-hidden">
             <div className="relative">
                 <img
-                    src={imageUrl}
+                    src='https://picsum.photos/200/200'
                     alt={`${firstName} ${lastName}`}
                     className="w-full h-1/4 object-cover"
                 />
-                <button className="cursor-pointer hover:scale-105 absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded">
-                    Edit
-                </button>
             </div>
             <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2">
@@ -48,4 +45,4 @@ const VerticalCard: React.FC<VerticalCardProps> = ({
     );
 };
 
-export default VerticalCard;
+export default Card;

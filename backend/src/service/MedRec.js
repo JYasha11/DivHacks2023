@@ -41,6 +41,5 @@ function getMedData(condition) {
 }
 
 
-getMedData("back pain")
 
 

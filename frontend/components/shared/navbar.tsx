@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button } from '@/components/shared';
+//import { Button } from '@/components/shared';
 import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { Logo } from '@/utils/icons';
@@ -11,7 +11,7 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="bg-stone-100 w-full">
+    <nav className="bg-stone-50 w-full">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3">
@@ -19,7 +19,7 @@ export default function NavBar() {
               <Logo />
             </figure>
             <Link href="/">
-              <h2 className="text-3xl font-bold text-primary-blue-200">
+              <h2 className="text-3xl font-light text-blue-500">
                 MedScribe
               </h2>
             </Link>
@@ -63,16 +63,16 @@ export default function NavBar() {
             className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'
               }`}>
             <ul className="items-center  justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <li className="text-gray-500 text-xl font-bold hover:text-primary-black">
+              <li className="text-gray-500 text-xl font-light hover:text-primary-black">
                 <Link href="/">Home</Link>
               </li>
               {user && (
-                <li className="text-gray-500 text-xl font-bold hover:text-primary-black">
+                <li className="text-gray-500 text-xl font-light hover:text-primary-black">
                   <Link href="/dashboard">Dashboard</Link>
                 </li>
               )}
-              <li className="text-gray-500 text-xl font-bold hover:text-primary-black">
-                <Link href="/contact">Contact US</Link>
+              <li className="text-gray-500 text-xl font-light hover:text-primary-black">
+                <Link href="/contact">Contact Us</Link>
               </li>
             </ul>
 
@@ -80,18 +80,18 @@ export default function NavBar() {
               {/* //! TODO: To add email verification  */}
               {user ? (
                 <div className="flex items-center">
-                  <h1 className="px-2">Welcome, {user.name}</h1>
+                  <h1 className="px-2">{user.name}</h1>
                   <Link href="api/auth/logout">
-                    <Button type="primary">
+                    <button className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-light py-2 px-4 rounded-lg">
                       <span>Sign out</span>
-                    </Button>
+                    </button>
                   </Link>
                 </div>
               ) : (
                 <Link href="/api/auth/login">
-                  <Button type="primary">
+                  <button className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-light py-2 px-4 rounded-lg">
                     <span>Sign in</span>
-                  </Button>
+                  </button>
                 </Link>
               )}
             </div>
@@ -100,18 +100,18 @@ export default function NavBar() {
         <div className="hidden space-x-2 md:flex ">
           {user ? (
             <div className="flex items-center">
-              <h1 className="px-2">Welcome, {user.name}</h1>
+              <h1 className="text-gray-700 px-2">{user.name}</h1>
               <Link href="api/auth/logout">
-                <Button type="primary">
+                <button className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-light py-2 px-4 rounded-lg">
                   <span>Sign out</span>
-                </Button>
+                </button>
               </Link>
             </div>
           ) : (
             <Link href="/api/auth/login">
-              <Button type="primary">
+              <button className="my-2 bg-blue-500 hover:bg-blue-700 text-white font-light py-2 px-4 rounded-lg">
                 <span>Sign in</span>
-              </Button>
+              </button>
             </Link>
           )}
         </div>
